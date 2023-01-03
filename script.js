@@ -50,7 +50,7 @@ function reset () {
 	console.log('00:00:00');
 }
 
-function car()
+function generate()
 {
 
 }
