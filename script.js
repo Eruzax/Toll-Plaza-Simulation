@@ -9,9 +9,9 @@ function initialize()
 
 
 // Update the timer
-function timer () 
+function timer() 
 {
-    seconds++;
+    seconds += 1 * speed;
 
     // Format our time
     hrs = Math.floor(seconds / 3600);
@@ -26,7 +26,8 @@ function timer ()
 
     for (var i = 0; i < speed; i++)
     {
-
+        ranV = Math.floor(Math.random() * (4) + 1);
+        
     }
 }
 
@@ -48,6 +49,24 @@ function reset () {
 	stop();
 	seconds = 0;
 	console.log('00:00:00');
+}
+
+function speedUp()
+{
+    if (speed != 4)
+    {
+        speed*=2;
+        console.log(speed);
+    }
+}
+
+function slowDown()
+{
+    if (speed != 1/4)
+    {
+        speed/=2;
+        console.log(speed);
+    }
 }
 
 function generate()
