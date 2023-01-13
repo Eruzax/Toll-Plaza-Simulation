@@ -5,6 +5,10 @@ function initialize()
     seconds = 0;
     speed = 1;
     interval = null;
+    cars = [];
+    trucks = [];
+    motorcycles =[];
+    buses = [];
 }
 
 
@@ -26,7 +30,24 @@ function timer()
 
     for (var i = 0; i < speed; i++)
     {
+        vehicle = {type: "", ezpass: false, resident: false, time:""};
         ranV = Math.floor(Math.random() * (4) + 1);
+        if (ranV == 1)
+        {
+            vehicle.type = "Car";
+        }
+        else if (ranV == 2)
+        {
+            vehicle.type = "Truck";
+        }
+        else if (ranV == 3)
+        {
+            vehicle.type ="Motorcycle";
+        }
+        else if(ranV == 4)
+        {
+            vehicle.type = "Bus";
+        }
         
     }
 }
