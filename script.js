@@ -1,7 +1,10 @@
 function initialize()
 {
     l = document.getElementById("log");
-    time = document.getElementById("timer");
+    log = ""
+    toll = document.getElementById("tolls");
+
+
     seconds = 0;
     speed = 1;
     interval = null;
@@ -30,11 +33,21 @@ function timer()
 
     for (var i = 0; i < speed; i++)
     {
-        vehicle = {type: "", ezpass: false, resident: false, time:""};
-        ranV = Math.floor(Math.random() * (4) + 1);
+        let vehicle = {type: "", ezpass: false, resident: false, toll: 0, time:""};
+        let ranV = Math.floor(Math.random() * (4) + 1);
         if (ranV == 1)
         {
             vehicle.type = "Car";
+            let randPass = Math.floor(Math.random() * (10) + 1);
+            if (randPass )
+            {
+                vehicle.resident = true;
+                
+            }
+            else if (randPass)
+            {
+                
+            }
         }
         else if (ranV == 2)
         {
@@ -47,6 +60,7 @@ function timer()
         else if(ranV == 4)
         {
             vehicle.type = "Bus";
+            vehicle.ezpass = true;
         }
         
     }
