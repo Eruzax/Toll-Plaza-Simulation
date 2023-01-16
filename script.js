@@ -104,7 +104,7 @@ function timer()
         }
         else if (mins > 12)
         {
-            vehicle.time = (mins - 12) + ":" + secs + "pm";
+            vehicle.time = mins - 12 + ":" + secs + "pm";
         }
 
         if (vehicle.resident)
