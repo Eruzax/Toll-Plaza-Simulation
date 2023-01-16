@@ -30,8 +30,9 @@ function timer()
     if (hrs < 10) hrs = "0" + hrs;
 
     console.log(`${hrs}:${mins}:${secs}`);
-
-    for (var i = 0; i < speed; i++)
+    if (mins <= 24)
+    {
+        for (var i = 0; i < speed; i++)
     {
         let vehicle = {type: "", ezpass: false, resident: false, toll: 0, time:""};
         let ranV = Math.floor(Math.random() * (4) + 1);
@@ -50,7 +51,7 @@ function timer()
                 }
                 else
                 {
-                    vehicle.toll = 8 * 0.9;
+                    vehicle.toll = 12 * 0.9;
                 }
             }
             else
@@ -110,15 +111,27 @@ function timer()
         {
             if (vehicle.ezpass)
             {
-                log += vehicle.time + "- A residential " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll
+                log += vehicle.time + "- A residential " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll + ".";
+            }
+            else
+            {
+                log += vehicle.time + "- A residential " + vehicle.type + " paid $" + vehicle.toll + ".";
             }
         }
         else
         {
-
+            if (vehicle.ezpass)
+            {
+                log += vehicle.time + "- A " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll + ".";
+            }
+            else
+            {
+                log += vehicle.time + "- A " + vehicle.type + " paid $" + vehicle.toll + ".";
+            }
         }
 
         display();
+    }
     }
 }
 
