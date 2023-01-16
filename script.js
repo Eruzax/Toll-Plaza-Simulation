@@ -104,29 +104,29 @@ function timer()
         }
         else if (mins > 12)
         {
-            vehicle.time = mins - 12 + ":" + secs + "pm";
+            vehicle.time = (mins - 12) + ":" + secs + "pm";
         }
 
         if (vehicle.resident)
         {
             if (vehicle.ezpass)
             {
-                log += vehicle.time + "- A residential " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll + ".";
+                log += vehicle.time + "- A residential " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll + "." + "<br />";
             }
             else
             {
-                log += vehicle.time + "- A residential " + vehicle.type + " paid $" + vehicle.toll + ".";
+                log += vehicle.time + "- A residential " + vehicle.type + " paid $" + vehicle.toll + "." + "<br />";
             }
         }
         else
         {
             if (vehicle.ezpass)
             {
-                log += vehicle.time + "- A " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll + ".";
+                log += vehicle.time + "- A " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll + "." + "<br />";
             }
             else
             {
-                log += vehicle.time + "- A " + vehicle.type + " paid $" + vehicle.toll + ".";
+                log += vehicle.time + "- A " + vehicle.type + " paid $" + vehicle.toll + "." + "<br />";
             }
         }
 
