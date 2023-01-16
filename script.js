@@ -39,30 +39,86 @@ function timer()
         {
             vehicle.type = "Car";
             let randPass = Math.floor(Math.random() * (10) + 1);
-            if (randPass )
+            if (randPass <= 7)
             {
-                vehicle.resident = true;
-                
+                vehicle.ezpass = true;
+                let vRes = Math.floor(Math.random() * (10) + 1);
+                if (vRes <= 6)
+                {
+                    vehicle.resident = true;
+                    vehicle.toll = 12 * 0.6;
+                }
+                else
+                {
+                    vehicle.toll = 8 * 0.9;
+                }
             }
-            else if (randPass)
+            else
             {
-                
+                vehicle.toll = 12;
             }
         }
         else if (ranV == 2)
         {
-            vehicle.type = "Truck";
+            vehicle.type ="Motorcycle";
+            let randPass = Math.floor(Math.random() * (10) + 1);
+            if (randPass <= 7)
+            {
+                vehicle.ezpass = true;
+                let vRes = Math.floor(Math.random() * (10) + 1);
+                if (vRes <= 6)
+                {
+                    vehicle.resident = true;
+                    vehicle.toll = 8 * 0.6;
+                }
+                else
+                {
+                    vehicle.toll = 8 * 0.9;
+                }
+            }
+            else
+            {
+                vehicle.toll = 8;
+            }
         }
         else if (ranV == 3)
         {
-            vehicle.type ="Motorcycle";
+            vehicle.type = "Truck";
+            let randPass = Math.floor(Math.random() * (10) + 1);
+            if (randPass <= 9)
+            {
+                vehicle.toll = 18 * 0.9;
+            }
+
         }
-        else if(ranV == 4)
+        else if (ranV == 4)
         {
             vehicle.type = "Bus";
             vehicle.ezpass = true;
         }
         
+        if (mins == 0)
+        {
+            vehicle.time = "12:" + secs + "am";
+        }
+        else if (mins > 12)
+        {
+            vehicle.time = mins - 12 + ":" + secs + "pm";
+        }
+
+        if (vehicle.resident)
+        {
+            if (vehicle.ezpass)
+            {
+                log += vehicle.time + "- A residential " + vehicle.type + " with EZ-Pass paid $" + vehicle.toll
+            }
+        }
+        else
+        {
+
+        }
+
+        display();
     }
 }
 
@@ -104,7 +160,7 @@ function slowDown()
     }
 }
 
-function generate()
+function display()
 {
-
+    l.innerHTML = log;
 }
