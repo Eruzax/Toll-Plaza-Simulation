@@ -47,11 +47,11 @@ function timer()
                 if (vRes <= 6)
                 {
                     vehicle.resident = true;
-                    vehicle.toll = 12 * 0.6;
+                    vehicle.toll = Math.floor((12 * 60)) /100;
                 }
                 else
                 {
-                    vehicle.toll = 12 * 0.9;
+                    vehicle.toll = Math.floor((12 * 90) /100);
                 }
             }
             else
@@ -98,13 +98,39 @@ function timer()
             vehicle.ezpass = true;
         }
         
+        let tp = secs - 1 +i;
         if (mins == 0)
         {
-            vehicle.time = "12:" + secs + "am";
+            if (tp < 10)
+            {
+                vehicle.time = "12:0" + (secs - 1 + i) + "am";
+            }
+            else
+            {
+                vehicle.time = "12:" + (secs - 1 + i) + "am";
+            }
+        }
+        else if (mins < 12)
+        {
+            if (tp < 10)
+            {
+                vehicle.time = mins + ":0" + (secs - 1 + i) + "am";
+            }
+            else
+            {
+                vehicle.time = mins + ":" + (secs - 1 + i) + "am";
+            }
         }
         else if (mins > 12)
         {
-            vehicle.time = mins - 12 + ":" + secs + "pm";
+            if (tp < 10)
+            {
+                vehicle.time = mins + ":0" + (secs - 1 + i) + "am";
+            }
+            else
+            {
+                vehicle.time = mins - 12 + ":" + (secs - 1 + i) + "pm";
+            }
         }
 
         if (vehicle.resident)
