@@ -103,33 +103,44 @@ function timer()
         {
             if (tp < 10)
             {
-                vehicle.time = "12:0" + (secs - 1 + i) + "am";
+                vehicle.time = "12:0" + (secs + i) + "am";
             }
             else
             {
-                vehicle.time = "12:" + (secs - 1 + i) + "am";
+                vehicle.time = "12:" + (secs + i) + "am";
             }
         }
         else if (mins < 12)
         {
             if (tp < 10)
             {
-                vehicle.time = mins + ":0" + (secs - 1 + i) + "am";
+                vehicle.time = mins + ":" + (secs + i) + "am";
             }
             else
             {
-                vehicle.time = mins + ":" + (secs - 1 + i) + "am";
+                vehicle.time = mins + ":" + (secs + i) + "am";
+            }
+        }
+        else if (mins == 12)
+        {
+            if (tp < 10)
+            {
+                vehicle.time = "12:0" + (secs + i) + "pm";
+            }
+            else
+            {
+                vehicle.time = "12:" + (secs + i) + "pm";
             }
         }
         else if (mins > 12)
         {
             if (tp < 10)
             {
-                vehicle.time = mins + ":0" + (secs - 1 + i) + "am";
+                vehicle.time = mins + ":0" + (secs + i) + "pm";
             }
             else
             {
-                vehicle.time = mins - 12 + ":" + (secs - 1 + i) + "pm";
+                vehicle.time = mins - 12 + ":" + (secs + i) + "pm";
             }
         }
 
@@ -197,6 +208,11 @@ function slowDown()
         speed/=2;
         console.log(speed);
     }
+}
+
+function reset()
+{
+    window.location.reload();
 }
 
 function display()
